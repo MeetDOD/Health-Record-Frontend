@@ -4,10 +4,10 @@ import PatientTable from './PatientTable';
 
 const Home = () => {
   return (
-    <>
-    <DoctorTable />
-    <PatientTable />
-    </>
+    <div>
+    <DoctorTable/>
+    <PatientTable/>
+    </div>
   )
 }
 
