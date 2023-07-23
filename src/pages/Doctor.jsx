@@ -11,11 +11,11 @@ const Doctor = () => {
   const [contact_info,setcontact_info] = useState('');
   const navigate = useNavigate();
 
-  const formSubmit = (e) => {
+  const formSubmit = async (e) => {
 
     const doctorData = {fname,lname,specialization,contact_info};
 
-    fetch('https://health-voxm.onrender.com/api/v1/doctors',{
+    await fetch('https://health-voxm.onrender.com/api/v1/doctors',{
       method:"POST",
       headers:{"content-type":"application/json"},
       body:JSON.stringify(doctorData)
