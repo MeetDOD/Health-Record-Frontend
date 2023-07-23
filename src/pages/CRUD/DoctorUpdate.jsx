@@ -38,7 +38,7 @@ const DoctorUpdate = () => {
                 timerProgressBar: true,
                 showConfirmButton: false
             });
-          navigate('/')
+          navigate('/doctorData')
         })
         .catch(err => console.error)
       }

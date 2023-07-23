@@ -1,7 +1,8 @@
 import { Typography,Button,Box } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
-import Loading from './components/Loading'
+import Loading from '../components/Loading'
+import { useNavigate } from 'react-router-dom';
 
 
 const MedRec = () => {
@@ -24,7 +25,7 @@ const MedRec = () => {
     const [test_assigned,setSelecttest] = useState('');
 
     const [loading,setLoading] = useState(false)
-
+    const navigate = useNavigate();
 
     const fetchData = async (url1,url2,url3,url4) => {
         try{
@@ -87,6 +88,7 @@ const MedRec = () => {
         timerProgressBar: true,
         showConfirmButton: false
     });
+    navigate('/medicalrecorddata')
     }).catch((err)=>{
       console.log(err);
     })

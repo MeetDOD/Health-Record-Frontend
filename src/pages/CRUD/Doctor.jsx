@@ -29,7 +29,7 @@ const Doctor = () => {
         timerProgressBar: true,
         showConfirmButton: false
     });
-    navigate('/')
+    navigate('/doctorData')
     }).catch((err)=>{
       console.log(err);
     })

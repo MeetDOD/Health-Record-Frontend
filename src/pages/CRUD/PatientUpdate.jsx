@@ -1,47 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Typography,Button,Box,Alert, Snackbar } from '@mui/material';
 import Swal from 'sweetalert2'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
+import axios from 'axios'
 
-const Patient = () => {
+const PatientUpdate = () => {
 
-  const [fname,setfname] = useState('');
-  const [lname,setlname] = useState('');
-  const [date_of_birth,setdate_of_birth] = useState('');
-  const [gender,setgender] = useState('');
-  const [contact_info,setcontact_info] = useState('');
-  const [insurance_details,setinsurance_details] = useState('');
+  const {id} = useParams();
+  const [fname,setfname] = useState();
+  const [lname,setlname] = useState();
+  const [date_of_birth,setdate_of_birth] = useState();
+  const [gender,setgender] = useState();
+  const [contact_info,setcontact_info] = useState();
+  const [insurance_details,setinsurance_details] = useState();
   const navigate = useNavigate();
 
-  const formSubmit=(e)=>{
-    e.preventDefault();
-
-    const patientData={fname,lname,date_of_birth,gender,contact_info,insurance_details};
-
-    fetch("https://health-voxm.onrender.com/api/v1/patients",{
-      method:"POST",
-      headers:{"content-type":"application/json"},
-      body:JSON.stringify(patientData)
-    }).then((res) => {
-        Swal.fire({
-            title:'Patient Added',
-            icon:'success',
-            toast:true,
-            timer:3000,
-            position:'top-right',
-            timerProgressBar: true,
-            showConfirmButton: false
-        });
-        navigate('/')
-    }).catch((err)=>{
-      console.log(err)
+  useEffect(() => {
+    axios.get('https://health-voxm.onrender.com/api/v1/patients/'+id)
+    .then(result => {
+      console.log(result)
+      setfname(result.data.fname)
+      setlname(result.data.lname)
+      setdate_of_birth(result.data.date_of_birth)
+      setgender(result.data.gender)
+      setcontact_info(result.data.contact_info)
+      setinsurance_details(result.data.insurance_details)
     })
-  };
+    .catch(err => console.error(err))
+  }, [])
+
+  const updateForm = (e) => {
+    e.preventDefault();
+    axios.put('https://health-voxm.onrender.com/api/v1/patients/'+id,{fname,lname,date_of_birth,gender,contact_info,insurance_details})
+    .then(result => {
+      Swal.fire({
+        title:'Patient Updated',
+        icon:'success',
+        toast:true,
+        timer:3000,
+        position:'top-right',
+        timerProgressBar: true,
+        showConfirmButton: false
+    });
+      navigate('/patientData')
+    })
+    .catch(err => console.error)
+  }
 
   return (
+    <div>
+      
     <form>
     <Typography textAlign={'center'} variant='h3' fontFamily={'quicksand'} padding={1}>
-    Add Patient 
+    Update Patient 
     </Typography>
   <div className="px-5 mx-5 py-2">
     <label for="exampleInputEmail1" className="form-label">First Name</label>
@@ -67,13 +78,14 @@ const Patient = () => {
     <label for="exampleInputEmail1" className="form-label">Insurance Details</label>
     <input type="text" value={insurance_details} onChange={e=>setinsurance_details(e.target.value)} className="form-control"/>
   </div>
-  <div className='pt-3 mb-5'>
-  <Box textAlign='center' >
-    <Button  variant="contained" type='submit' onClick={formSubmit} >Add</Button>
+  <div className='pt-3'>
+  <Box textAlign='center' className='mb-5' >
+    <Button  variant="contained" type='submit' onClick={updateForm}>Update</Button>
   </Box>
   </div>
   </form>
+    </div>
   )
 }
 
-export default Patient;
+export default PatientUpdate

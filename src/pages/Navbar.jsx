@@ -12,8 +12,17 @@ const Navbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <Link class="nav-link active" aria-current="page" to='/allData'>All Data</Link>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            All Data
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <Link class="nav-link active" aria-current="page" to='/patientData'>Patient</Link>
+            <Link class="nav-link active" aria-current="page" to='/doctorData'>Doctor</Link>
+            <Link class="nav-link active" aria-current="page" to='/medicationData'>Medication</Link>
+            <Link class="nav-link active" aria-current="page" to='/medicalrecorddata'>MedicalRecord</Link>
+            <Link class="nav-link active" aria-current="page" to='/testdata'>Test</Link>
+          </ul>
         </li>
         <li class="nav-item">
           <Link class="nav-link active" aria-current="page" to='/patient'>Patient</Link>
