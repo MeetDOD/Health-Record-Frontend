@@ -10,6 +10,7 @@ import DoctorUpdate from './pages/DoctorUpdate'
 import PatientUpdate from './pages/PatientUpdate'
 import Main from './pages/Main'
 import Footer from './pages/Footer'
+import Pr from './pages/Pr'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/test' element={<Test />}/>
           <Route path='/doctor' element={<Doctor />}/>
           <Route path='/medication' element={<Medication />}/>
+          <Route path='/pr' element={<Pr />}/>
           <Route path='/medRec' element={<MedRec />}/>
           <Route path='/updateDoctor/:id' element={<DoctorUpdate />}/>
           <Route path='/updatePatient/:id' element={<PatientUpdate />}/>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
 import axios from 'axios'
 
-const MedRec = () => {
+const Pr = () => {
 
     const API ="https://health-voxm.onrender.com/api/v1/patients";
     const API1 ="https://health-voxm.onrender.com/api/v1/doctors";
@@ -182,4 +182,4 @@ const [selecttest,setSelecttest] = useState('');
   )
 }
 
-export default MedRec
+export default Pr
