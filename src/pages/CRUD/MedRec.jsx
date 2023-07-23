@@ -169,7 +169,7 @@ const MedRec = () => {
   
     <div className='pt-3'>
     <Box textAlign='center' >
-      <Button type='submit' onClick={handleSubmit}  variant="contained" >Add Record</Button>
+      <Button type='submit' onClick={handleSubmit}  variant="contained"color='secondary'  >Add Record</Button>
     </Box>
     </div>
     </div>) : (<Loading/>)}

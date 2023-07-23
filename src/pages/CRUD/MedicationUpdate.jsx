@@ -60,7 +60,7 @@ const MedicationUpdate = () => {
   </div>
   <div className='pt-3'>
   <Box textAlign='center' >
-    <Button  type='submit' onClick={updateForm} variant="contained" >Update</Button>
+    <Button  type='submit' onClick={updateForm} variant="contained" color='secondary'  >Update</Button>
   </Box>
   </div>
   </div>

@@ -69,7 +69,7 @@ const Medication = () => {
 
   <div className='pt-3'>
   <Box textAlign='center' >
-    <Button  variant="contained" onClick={addMedication} type = "submit">Add medication</Button>
+    <Button  variant="contained" onClick={addMedication} type = "submit" color='secondary' >Add medication</Button>
   </Box>
   </div>
   </div>

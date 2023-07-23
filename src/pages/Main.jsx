@@ -12,7 +12,7 @@ const Main = () => {
       alt="Responsive image"/>
           <h3 class=" text-center " style={{color:'blueviolet'}}>Your Health, Connected</h3>
     <div class="text-center">
-      <Link to='/allData'><Button variant='contained' color='secondary' className='my-3'>Track Now</Button></Link>
+      <Link to='/patientData'><Button variant='contained' color='secondary' className='my-3'>Track Now</Button></Link>
     </div>
   </div>
   </>

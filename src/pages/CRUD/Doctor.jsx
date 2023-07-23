@@ -58,7 +58,7 @@ const Doctor = () => {
   </div>
   <div className='pt-3'>
   <Box textAlign='center' >
-    <Button  type='submit' onClick={formSubmit} variant="contained" >Add</Button>
+    <Button  type='submit' onClick={formSubmit} variant="contained" color='secondary' >Add Doctor</Button>
   </Box>
   </div>
   </div>

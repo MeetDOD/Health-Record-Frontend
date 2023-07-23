@@ -80,7 +80,7 @@ const PatientUpdate = () => {
   </div>
   <div className='pt-3'>
   <Box textAlign='center' className='mb-5' >
-    <Button  variant="contained" type='submit' onClick={updateForm}>Update</Button>
+    <Button  variant="contained" type='submit' onClick={updateForm} color='secondary' >Update</Button>
   </Box>
   </div>
   </form>

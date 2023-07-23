@@ -65,7 +65,7 @@ const Test = () => {
   </div>
   <div className='pt-3'>
   <Box textAlign='center' >
-    <Button  variant="contained" type='submit' onClick={addTest}>Add test</Button>
+    <Button  variant="contained" type='submit' onClick={addTest} color='secondary' >Add test</Button>
   </Box>
   </div>
   </div>

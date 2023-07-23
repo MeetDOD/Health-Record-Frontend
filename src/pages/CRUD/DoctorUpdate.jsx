@@ -66,7 +66,7 @@ const DoctorUpdate = () => {
   </div>
   <div className='pt-3'>
   <Box textAlign='center' >
-    <Button  type='submit' onClick={updateForm} variant="contained" >Update</Button>
+    <Button  type='submit' onClick={updateForm} variant="contained" color='secondary'  >Update Doctor</Button>
   </Box>
   </div>
   </div>
