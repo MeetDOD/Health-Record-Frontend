@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 
 const MedRecordTable = () => {
-  const API = "http://localhost:5000/api/v1/med_records";
+  const API = "https://health-record.onrender.com/api/v1/med_records";
 
   const navigate = useNavigate();
   const [docs, setDocs] = useState([]);
@@ -53,7 +53,7 @@ const MedRecordTable = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete('http://localhost:5000/api/v1/med_records/'+id)
+    axios.delete('https://health-record.onrender.com/api/v1/med_records/'+id)
     .then(res =>{
       Swal.fire({
         title:'Record Deleted',
