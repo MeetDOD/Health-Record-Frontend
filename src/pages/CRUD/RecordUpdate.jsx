@@ -85,7 +85,7 @@ const DoctorUpdate = () => {
 
     const updateForm = (e) => {
       e.preventDefault();
-      axios.put('http://localhost:5000/api/v1/med_records/'+id,{for_patient,assigned_by_doctor,prescription,test_assigned})
+      axios.put('https://health-voxm.onrender.com/api/v1/med_records/'+id,{for_patient,assigned_by_doctor,prescription,test_assigned})
       .then(result => {
           Swal.fire({
               title:'Record Updated',
@@ -104,7 +104,7 @@ const DoctorUpdate = () => {
      
 
       fetchData(API,API1,API2,API3);
-      axios.get('http://localhost:5000/api/v1/med_records/'+id)
+      axios.get('https://health-voxm.onrender.com/api/v1/med_records/'+id)
       .then(result => {
         console.log(result)
         setfor_patient(result.data.for_patient.fname)
