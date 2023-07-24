@@ -72,6 +72,7 @@ const MedRec = () => {
 
   const handleSubmit = (e) => {
 
+    setLoading(true)
     const doctorData = {for_patient,assigned_by_doctor,prescription,test_assigned};
 
     fetch('https://health-voxm.onrender.com/api/v1/med_records',{
@@ -88,6 +89,7 @@ const MedRec = () => {
         timerProgressBar: true,
         showConfirmButton: false
     });
+    setLoading(false)
     navigate('/medicalrecorddata')
     }).catch((err)=>{
       console.log(err);
@@ -98,8 +100,6 @@ const MedRec = () => {
   useEffect(() => {
     fetchData(API,API1,API2,API3)
   },[]);
-
-
 
 
   return (

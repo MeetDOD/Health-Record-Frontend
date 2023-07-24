@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 
 const MedRecordTable = () => {
-  const API = "https://health-voxm.onrender.com/api/v1/med_records/";
+  const API = "http://localhost:5000/api/v1/med_records";
 
   const navigate = useNavigate();
   const [docs, setDocs] = useState([]);
@@ -27,6 +27,7 @@ const MedRecordTable = () => {
       if (data.length > 0) {
         setDocs(data);
       }
+      console.log(data)
     } catch (e) {
       console.error(e);
     }
@@ -52,7 +53,7 @@ const MedRecordTable = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete('https://health-voxm.onrender.com/api/v1/med_records/'+id)
+    axios.delete('http://localhost:5000/api/v1/med_records/'+id)
     .then(res =>{
       Swal.fire({
         title:'Record Deleted',
@@ -90,11 +91,11 @@ const MedRecordTable = () => {
             const { for_patient, record_date, assigned_by_doctor, prescription,test_assigned } = item;
             return (
               <tr key={for_patient}>
-                <td className="text-center">{for_patient}</td>
+                <td className="text-center">{for_patient.fname}</td>
                 <td className="text-center">{record_date}</td>
-                <td className="text-center">{assigned_by_doctor}</td>
-                <td className="text-center">{prescription}</td>
-                <td className="text-center">{test_assigned}</td>
+                <td className="text-center">{assigned_by_doctor.fname}</td>
+                <td className="text-center">{prescription.name}</td>
+                <td className="text-center">{test_assigned.name}</td>
                 <td>
                   <Button onClick={(e) => handleDelete(item._id)}  size="small" color="error">
                     <DeleteIcon/>
