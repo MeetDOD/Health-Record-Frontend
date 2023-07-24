@@ -22,7 +22,10 @@ const MedRecordTable = () => {
 
   const fetchDocs = async (url) => {
     try {
-      const res = await fetch(url);
+      const res = await fetch(url,{
+         method : "GET",
+         headers:{"content-type":"application/json"},
+      });
       const data = await res.json();
       if (data.length > 0) {
         setDocs(data);
